@@ -8,11 +8,13 @@ import { CalculoTotalService } from './calculo-total.service';
 import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
 import { PaginasComponent } from './paginas/paginas.component';
+import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+
 
 const appRoutes:Routes=[
 
-  {path:'',component:HomeComponent},
-  {path:'p',component:PanelComponent}
+  {path:'home',component:HomeComponent},
+  {path:'',component:BienvenidaComponent}
   
 ]
 
@@ -21,7 +23,8 @@ const appRoutes:Routes=[
     AppComponent,
     HomeComponent,
     PanelComponent,
-    PaginasComponent
+    PaginasComponent,
+    BienvenidaComponent    
   ],
   imports: [
     BrowserModule,
