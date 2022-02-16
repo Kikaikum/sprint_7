@@ -1,14 +1,17 @@
 <h2>Que quieres hacer?</h2>
 
 <label for="uno">Una pagina web (500€)</label>
-<input type="checkbox" name="uno" id="uno" (change)="sumar($event.target)">
+<input type="checkbox" name="uno" id="uno" (change)="verificar($event.target)">
+
+    <app-panel *ngIf="servicio.uno" ></app-panel >
+    
 <br>
 <label for="dos">Una consultoria CEO (300€)</label>
-<input type="checkbox" name="dos" id="dos" (change)="sumar($event.target)">
+<input type="checkbox" name="dos" id="dos" (change)="verificar($event.target)">
 <br>
 <label for="tres">Una campaña de Google Ads (200€)</label>
-<input type="checkbox" name="tres" id="tres" (change)="sumar($event.target)">
+<input type="checkbox" name="tres" id="tres" (change)="verificar($event.target)">
 <br>
 
 
-<p>Precio:{{total}}</p>
+<p>Precio:{{this.servicio.total}}</p>

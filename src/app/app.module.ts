@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalculoTotalService } from './calculo-total.service';
 import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
+import { PaginasComponent } from './paginas/paginas.component';
 
 const appRoutes:Routes=[
 
@@ -18,14 +20,17 @@ const appRoutes:Routes=[
   declarations: [
     AppComponent,
     HomeComponent,
-    PanelComponent
+    PanelComponent,
+    PaginasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CalculoTotalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
