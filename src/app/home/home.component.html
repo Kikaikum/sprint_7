@@ -1,10 +1,9 @@
 <h2>Que quieres hacer?</h2>
-
-<label for="uno">Una pagina web (500€)</label>
-<input type="checkbox" name="uno" id="uno" (change)="verificar($event.target)">
-
-    <app-panel *ngIf="servicio.uno" ></app-panel >
-    
+<div class="row justify-content-around">
+    <div class="col-5">
+        <label for="uno">Una pagina web (500€)</label>
+        <input type="checkbox" name="uno" id="uno" (change)="verificar($event.target)">
+            <app-panel *ngIf="servicio.uno" ></app-panel >    
 <br>
 <label for="dos">Una consultoria CEO (300€)</label>
 <input type="checkbox" name="dos" id="dos" (change)="verificar($event.target)">
@@ -14,8 +13,33 @@
 <br>
 
 
-<p>Precio:{{this.servicio.total}}</p>
+<p class="fw-bold">Precio:{{this.servicio.total}}€</p>
 
-<button onclick="window.location.href=''">Volver</button>
+
+<form novalidate (ngSubmit)="this.servicio.agregar(presupuesto.value)" [formGroup]="presupuesto" >
+    
+    <label class="form-label">Nombre presupuesto</label>
+    <input class="form-control" formControlName="nombre" type="text">
+    <div *ngIf="presupuesto.get('nombre')?.hasError('required') && presupuesto.get('nombre')?.touched">
+        Falta el nombre
+    </div>    
+    <label class="form-label">Nombre cliente</label>
+    <input class="form-control" formControlName="cliente" type="text">
+    <div *ngIf="presupuesto.get('cliente')?.hasError('required') && presupuesto.get('cliente')?.touched">
+        Falta el cliente
+    </div> 
+    <br>
+    <button class='btn btn-primary mt-2 btn-sm' type="submit" [disabled]="presupuesto.invalid">Guardar</button>
+    <button class='btn btn-danger mt-2 ms-2 btn-sm' onclick="window.location.href=''">Volver</button> 
+</form>
+    </div>
+    
+<br>
+<app-lista class="col-5"></app-lista>
+
+</div>
+
+
+
 
 

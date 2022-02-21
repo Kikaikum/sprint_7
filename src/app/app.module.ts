@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { PanelComponent } from './panel/panel.component';
 import { PaginasComponent } from './paginas/paginas.component';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListaComponent } from './lista/lista.component';
+
 
 
 const appRoutes:Routes=[
@@ -24,14 +27,16 @@ const appRoutes:Routes=[
     HomeComponent,
     PanelComponent,
     PaginasComponent,
-    BienvenidaComponent    
+    BienvenidaComponent,
+    ListaComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [CalculoTotalService],
   bootstrap: [AppComponent]

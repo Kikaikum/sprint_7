@@ -1,0 +1,23 @@
+<div class="row justify-content-around">
+    <button class="col-3 btn btn-primary" (click)="this.servicio.orderAZ()">Order A-Z</button>
+    <button class="col-3 btn btn-primary" (click)="this.servicio.orderAZ()">Order Data</button>
+    <button class="col-3 btn btn-primary" (click)="this.servicio.reiniciar()">Reiniciar</button>
+</div>
+<div class="row">
+    <table class="table col align-self-end">
+        <thead>
+          <tr>        
+            <th scope="col">Nombre</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let presu of lista">    
+                <td>{{presu.nombre}}</td>
+                <td>{{presu.cliente}}</td>
+                <td>{{presu.precio}}€</td>            
+            </tr>      
+        </tbody>
+      </table>
+</div>

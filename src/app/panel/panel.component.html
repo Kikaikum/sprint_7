@@ -1,12 +1,26 @@
-<form [formGroup]="paginas" > 
+<form [formGroup]="paginas" >
+
     <br>
     <label>Numero de paginas</label>
     <app-paginas [tipo]="'pagina'"></app-paginas>
+    <button (click)="open('pagina')">i</button> 
     <br>
     <label>Numero de idiomas</label>
     <app-paginas [tipo]="'idioma'"></app-paginas>
+    <button (click)="open('idioma')">i</button>    
     <br>
+     
     
     
 </form>
+<ng-template #pagina let-modal>       
+    <div class="modal-body">
+        <p>pagina</p>
+    </div>
+</ng-template>
 
+<ng-template #idioma let-modal>
+    <div class="modal-body">
+        <p>idioma</p>
+    </div>
+</ng-template>

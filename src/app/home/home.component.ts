@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CalculoTotalService } from '../calculo-total.service';
 
 @Component({
@@ -6,9 +7,14 @@ import { CalculoTotalService } from '../calculo-total.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-   
+
+export class HomeComponent implements OnInit {  
   
+ 
+  presupuesto= new FormGroup({    
+    nombre:new FormControl('',[Validators.required, Validators.minLength(2)]),
+    cliente: new FormControl('', [Validators.required, Validators.minLength(2)])
+  });
   
   constructor(public servicio:CalculoTotalService) { }
 
@@ -28,6 +34,7 @@ export class HomeComponent implements OnInit {
     }
     this.servicio.calculo();         
   }
+  
   
   ngOnInit(): void {  
   }
