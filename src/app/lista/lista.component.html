@@ -10,13 +10,17 @@
             <th scope="col">Nombre</th>
             <th scope="col">Cliente</th>
             <th scope="col">Precio</th>
+            <th scope="col">Productos</th>
           </tr>
         </thead>
         <tbody>
             <tr *ngFor="let presu of lista">    
                 <td>{{presu.nombre}}</td>
                 <td>{{presu.cliente}}</td>
-                <td>{{presu.precio}}€</td>            
+                <td>{{presu.precio}}€</td>  
+                <td><tr *ngFor="let prd of presu.productos">
+                  <td>{{prd}}</td>
+                </td>          
             </tr>      
         </tbody>
       </table>

@@ -13,10 +13,11 @@ export class CalculoTotalService {
   paginas=0;
   idiomas=0;
   total=0;
-  product:Array<{producto:string}>=[]
+  
   listaPresupuestos: Array<{nombre: string, cliente: string, precio:number, data:string, productos:Array<{producto:string}>}> = []
   
   calculo(){
+    
     this.total=0;    
     if(this.uno){
       this.total+=500;
@@ -40,21 +41,21 @@ export class CalculoTotalService {
   
   agregar(valor:any){    
     let fecha = Date.now();    
-    let hoy = new Date(fecha);
-    
-    let listas=valor;
+    let hoy = new Date(fecha);    
+    let listas=valor;    
     listas.precio=this.total;
     listas.data=hoy;
+    let product:string[]=[];
     if(this.uno){
-      this.product.push({producto:"uno"})
+      product.push("uno")
     }
     if(this.dos){
-      this.product.push({producto:"dos"})
+      product.push("dos")
     } 
     if(this.tres){
-      this.product.push({producto:"tres"})
+      product.push("tres")
     }
-    listas.productos=this.product;
+    listas.productos=product;
            
     if(this.listaPresupuestos.length<1){
       this.listaPresupuestos.push(listas);      
@@ -71,7 +72,8 @@ export class CalculoTotalService {
         this.listaPresupuestos.push(listas);
       }
     }
-    console.log(this.listaPresupuestos);          
+    console.log(this.listaPresupuestos);
+              
   }
 
   reiniciar(){
@@ -81,8 +83,13 @@ export class CalculoTotalService {
 
   orderAZ(){
 
-    this.listaPresupuestos.sort()
-    
+    let kike=this.listaPresupuestos
+    this.listaPresupuestos.sort(function(a, b){
+      if(a.nombre < b.nombre) { return -1; }
+      if(a.nombre > b.nombre) { return 1; }
+      return 0;
+  })
+  
   }
 
 
