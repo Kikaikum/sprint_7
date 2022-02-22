@@ -1,26 +1,31 @@
 <form [formGroup]="paginas" >
 
-    <br>
-    <label>Numero de paginas</label>
-    <app-paginas [tipo]="'pagina'"></app-paginas>
-    <button (click)="open('pagina')">i</button> 
-    <br>
-    <label>Numero de idiomas</label>
-    <app-paginas [tipo]="'idioma'"></app-paginas>
-    <button (click)="open('idioma')">i</button>    
-    <br>
+    <div class="row">
+        <label class="col-12 mb-2" >Numero de paginas</label>
+        <app-paginas class="col-8"  [tipo]="'pagina'"></app-paginas>
+        <button class="col-1 btn btn-info" (click)="modal.open(contenido)">i</button>
+    </div>
+     
+    <div class="row">
+        <label class="col-12 mb-2">Numero de idiomas</label>
+        <app-paginas class="col-8" [tipo]="'idioma'"></app-paginas>
+        <button class="col-1 btn btn-info" (click)="modal.open(contenido2)">i</button>  
+    </div>
+      
+    
      
     
     
 </form>
-<ng-template #pagina let-modal>       
+<ng-template #contenido let-modal>       
     <div class="modal-body">
-        <p>pagina</p>
+        <p>Pon el numero de PAGINAS que quieres que tenga tu pagina web</p>
     </div>
 </ng-template>
 
-<ng-template #idioma let-modal>
+<ng-template #contenido2 let-modal>
     <div class="modal-body">
-        <p>idioma</p>
+        <p>Pon el numero de IDIOMAS que quieres que tenga tu pagina web</p>
     </div>
 </ng-template>
+

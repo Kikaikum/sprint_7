@@ -1,6 +1,6 @@
-<h2>Que quieres hacer?</h2>
+<h2 class="mt-5">Que quieres hacer?</h2>
 <div class="row justify-content-around">
-    <div class="col-5">
+    <div class="col-5 mt-2">
         <label for="uno">Una pagina web (500€)</label>
         <input type="checkbox" name="uno" id="uno" (change)="verificar($event.target)">
             <app-panel *ngIf="servicio.uno" ></app-panel >    
@@ -13,7 +13,7 @@
 <br>
 
 
-<p class="fw-bold">Precio:{{this.servicio.total}}€</p>
+<p class="fw-bold mt-3 mb-5">Precio:{{this.servicio.total}}€</p>
 
 
 <form novalidate (ngSubmit)="this.servicio.agregar(presupuesto.value)" [formGroup]="presupuesto" >
@@ -35,7 +35,7 @@
     </div>
     
 <br>
-<app-lista class="col-5"></app-lista>
+<app-lista class="col-5 mt-2"></app-lista>
 
 </div>
 

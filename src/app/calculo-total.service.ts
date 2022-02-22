@@ -12,8 +12,7 @@ export class CalculoTotalService {
   tres=false;
   paginas=0;
   idiomas=0;
-  total=0;
-  
+  total=0;  
   listaPresupuestos: Array<{nombre: string, cliente: string, precio:number, data:string, productos:Array<{producto:string}>}> = []
   
   calculo(){
@@ -47,16 +46,17 @@ export class CalculoTotalService {
     listas.data=hoy;
     let product:string[]=[];
     if(this.uno){
-      product.push("uno")
+      product.push("Pagina WEB")
     }
     if(this.dos){
-      product.push("dos")
+      product.push("Consultoria CEO")
     } 
     if(this.tres){
-      product.push("tres")
+      product.push("Google Ads")
     }
     listas.productos=product;
-           
+    listas.nombre=listas.nombre.toUpperCase();
+    listas.cliente=listas.cliente.toUpperCase();        
     if(this.listaPresupuestos.length<1){
       this.listaPresupuestos.push(listas);      
     }
@@ -78,18 +78,22 @@ export class CalculoTotalService {
 
   reiniciar(){
     this.listaPresupuestos.splice(0,this.listaPresupuestos.length)
-
   }
 
   orderAZ(){
-
-    let kike=this.listaPresupuestos
     this.listaPresupuestos.sort(function(a, b){
       if(a.nombre < b.nombre) { return -1; }
       if(a.nombre > b.nombre) { return 1; }
       return 0;
-  })
-  
+    })  
+  }
+
+  orderData(){
+    this.listaPresupuestos.sort(function(a, b){
+      if(a.data < b.data) { return -1; }
+      if(a.data > b.data) { return 1; }
+      return 0;
+    })
   }
 
 
